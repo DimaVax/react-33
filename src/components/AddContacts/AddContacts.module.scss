@@ -1,0 +1,32 @@
+.title{
+    text-align: center;
+    color: #0073ff;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form{
+    outline:  solid 2px #0073ff;
+    background-color: #daebff;
+    margin: 0 auto;
+    width: 600px;
+    border-radius: 15px;
+    height: 220px;
+}
+.name, .phone{
+    text-align: center;
+    font-size: 20px;
+}
+.nameInput, .phoneInput {
+    display: block;
+    margin: 0 auto;
+    border: solid 1px #0073ff;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+.btn{
+    display: block;
+    margin: 20px auto;
+    border: solid 1px #0073ff;
+    border-radius: 5px;
+    padding: 5px;
+}

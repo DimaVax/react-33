@@ -1,0 +1,77 @@
+import { Contacts } from "../Contacts/Contacts";
+import { addContact, removeContact } from "../../redux/contacts/action";
+import styles from "./AddContacts.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { filterContacts } from "../../redux/filter/action";
+
+export const AddContacts = () => {
+    const contacts = useSelector((state) => state.contacts)
+    const dispatch = useDispatch()
+
+    
+    const editContacts = (e) => {
+        e.preventDefault()
+        const form = e.currentTarget
+        const name = form.elements.name.value
+        const number = form.elements.number.value
+
+        const contact = {
+            name: name,
+            phone: number,
+            id: Date.now(),
+        };
+        dispatch(addContact(contact))
+        form.reset()
+    }
+
+      const deleteContact = (id) => {
+        dispatch(removeContact(id))
+      }
+
+      const filterContact = (e) => {
+        const keyword = e.currentTarget.value
+
+        dispatch(filterContacts(keyword))
+      }
+
+  console.log(contacts);
+  return (
+    <>
+      <h1 className={styles.title}>PHONEBOOK</h1>
+      <form className={styles.form} onSubmit={editContacts}>
+        <p className={styles.name}>Name</p>
+        <input
+          type="text"
+          name="name"
+          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+        //   onInput={(event) => editName(event.target.value)}
+          className={styles.nameInput}
+        />
+        <p className={styles.phone}>Number</p>
+        <input
+          type="tel"
+          name="number"
+          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+        //   onInput={(event) => editPhone(event.target.value)}
+          className={styles.phoneInput}
+        />
+        <button type="submit" className={styles.btn}>
+          Add Contact
+        </button>
+      </form>
+      <input
+          type="text"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          placeholder="Filter"
+          onInput={filterContact}
+
+          className={styles.phoneInput}
+        />
+      <Contacts deleteContact={deleteContact}/>
+    </>
+  );
+};
