@@ -1,8 +1,10 @@
 import { Contacts } from "../Contacts/Contacts";
-import { addContact, removeContact } from "../../redux/contacts/action";
+// import { addContact, removeContact } from "../../redux/contacts/action";
+import { addContact, removeContact } from "../../redux/contactsSlice";
 import styles from "./AddContacts.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { filterContacts } from "../../redux/filter/action";
+// import { filterContacts } from "../../redux/filter/action";
+import { filterContacts } from "../../redux/filterSlice";
 
 export const AddContacts = () => {
     const contacts = useSelector((state) => state.contacts)
