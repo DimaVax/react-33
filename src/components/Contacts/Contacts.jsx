@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "./Contacts.module.scss";
 
 export const Contacts = ({deleteContact}) => {
-  const contacts = useSelector((state) => state.contacts)
+  const contacts = useSelector((state) => state.contacts.items)
   const filter = useSelector((state) => state.filter)
   console.log(filter)
   const filteredContacts = contacts.filter((contact) => contact.name.includes(filter))

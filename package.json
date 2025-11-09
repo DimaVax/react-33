@@ -1,7 +1,7 @@
 {
-  "name": "react-32",
+  "name": "react-33",
   "version": "0.1.0",
-  "homepage": "https://dimavax.github.io/react-32/",
+  "homepage": "https://dimavax.github.io/react-33/",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.1",
@@ -15,6 +15,7 @@
     "react-redux": "^9.2.0",
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
     "sass": "^1.93.2",
     "web-vitals": "^2.1.4"
   },
